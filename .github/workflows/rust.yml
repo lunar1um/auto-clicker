@@ -1,4 +1,4 @@
-name: auto-clicker
+name: CI - Auto Clicker
 
 on:
   push:
@@ -11,14 +11,35 @@ env:
 
 jobs:
   latest_deps:
-    name: Latest Dependencies
+    name: Test on Latest Dependencies
     runs-on: ubuntu-latest
     continue-on-error: true
-    env:
-      CARGO_RESOLVER_INCOMPATIBLE_RUST_VERSIONS: allow
     steps:
       - uses: actions/checkout@v4
-      - run: rustup update stable && rustup default stable
-      - run: cargo update --verbose
-      - run: cargo build --verbose
-      - run: cargo test --verbose
+
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+          profile: minimal
+
+      - name: Cache cargo
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+
+      - name: Update Dependencies
+        run: cargo update --verbose
+
+      - name: Build
+        run: cargo build --verbose
+
+      - name: Test
+        run: cargo test --verbose
