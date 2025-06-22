@@ -96,5 +96,4 @@ Binaries will be in `target/release/`.
 
 ### 📋 Planned Features
 * Auto updater
-* Save config file
 * Hold mouse support
