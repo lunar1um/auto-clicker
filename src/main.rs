@@ -67,23 +67,23 @@ enum Cli {
 #[derive(Debug, Default, Parser)]
 struct ConfigFlags {
     /// Click intervals in miliseconds
-    #[arg(long, default_value = "50")]
+    #[arg(long)]
     interval: Option<u64>,
 
     /// Which mouse button to click
-    #[arg(long, value_enum, default_value = "left")]
+    #[arg(long, value_enum)]
     button: Option<MouseButton>,
 
     /// How many times to click per interval
-    #[arg(long, default_value = "1")]
+    #[arg(long)]
     repeat: Option<i32>,
 
     /// Keybind to toggle clicker
-    #[arg(long, default_value = "Alt T")]
+    #[arg(long)]
     toggle: Option<String>,
 
     /// Keybind to quit program
-    #[arg(long, default_value = "Alt Q")]
+    #[arg(long)]
     quit: Option<String>,
 }
 
