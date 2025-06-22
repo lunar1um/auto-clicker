@@ -7,20 +7,14 @@ use std::{
     thread::{self, sleep},
     time::{Duration, Instant},
 };
-
 use directories::ProjectDirs;
-
 use serde::{Deserialize, Serialize};
-
 use global_hotkey::{
     GlobalHotKeyEvent, GlobalHotKeyManager,
     hotkey::{Code, HotKey},
 };
-
 use mouse_rs::{Mouse, types::keys::Keys};
-
 use clap::{Parser, command};
-
 #[derive(Debug, Deserialize, Serialize, Default, Clone)]
 struct AppConfig {
     interval: Option<u64>,
@@ -159,7 +153,7 @@ fn parse_code(key: &str) -> Option<Code> {
         "ESC" | "ESCAPE" => Escape,
         "SPACE" => Space,
         _ => return None,
-    }) // only these codes for now
+    })
 }
 
 fn run_clicker(
@@ -276,21 +270,11 @@ fn main() {
         Cli::Set(flags) => {
             let mut config = load_config().unwrap_or_default();
 
-            if let Some(val) = flags.interval {
-                config.interval = Some(val);
-            }
-            if let Some(val) = flags.button {
-                config.button = Some(val);
-            }
-            if let Some(val) = flags.repeat {
-                config.repeat = Some(val);
-            }
-            if let Some(val) = flags.toggle {
-                config.toggle = Some(val);
-            }
-            if let Some(val) = flags.quit {
-                config.quit = Some(val);
-            }
+            if let Some(val) = flags.interval {config.interval = Some(val)};
+            if let Some(val) = flags.button {config.button = Some(val)};
+            if let Some(val) = flags.repeat {config.repeat = Some(val)};
+            if let Some(val) = flags.toggle {config.toggle = Some(val)};
+            if let Some(val) = flags.quit {config.quit = Some(val)};
 
             fs::create_dir_all(path.parent().unwrap()).unwrap();
             let toml = toml::to_string_pretty(&config).unwrap();
