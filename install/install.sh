@@ -4,7 +4,7 @@ set -e
 ZIP_NAME="auto-clicker-x86_64-unknown-linux-gnu.zip"
 INSTALL_DIR="/usr/local/bin"
 TEMP_DIR="$(mktemp -d)"
-FINAL_NAME="auto-clicker"  # Your desired binary name
+FINAL_NAME="auto-clicker" 
 
 echo "🔍 Fetching latest release info..."
 URL=$(curl -s "https://api.github.com/repos/Lunarr199/auto-clicker/releases/latest" \
@@ -37,9 +37,7 @@ sudo mv "$TEMP_DIR/$EXTRACTED_FILE" "$INSTALL_DIR/$FINAL_NAME"
 
 echo "✅ Installed as $INSTALL_DIR/$FINAL_NAME"
 
-# Clean up
 rm -rf "$TEMP_DIR"
 rm -f "$ZIP_NAME"
 
-# display help message
 auto-clicker --help

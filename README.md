@@ -18,16 +18,18 @@ A simple, fast, and customizable auto-clicker built in Rust. Cross-platform supp
 ### ✅ Linux / MacOS (using `install.sh`)
 
 ```bash
-bash <(curl -sSL https://raw.githubusercontent.com/Lunarr199/auto-clicker/master/install/install.sh)
+curl -sSL https://raw.githubusercontent.com/Lunarr199/auto-clicker/master/install/install.sh | bash
 ```
 
 Or manually:
 
 ```bash
-wget https://github.com/Lunarr199/auto-clicker/releases/latest/download/auto-clicker-x86_64-unknown-linux-gnu.zip
-unzip auto-clicker*.zip
+wget -q https://github.com/Lunarr199/auto-clicker/releases/latest/download/auto-clicker-x86_64-unknown-linux-gnu.zip
+unzip -q auto-clicker-x86_64-unknown-linux-gnu.zip
+mv auto-clicker-x86_64-unknown-linux-gnu auto-clicker
 chmod +x auto-clicker
 sudo mv auto-clicker /usr/local/bin/
+rm auto-clicker-x86_64-unknown-linux-gnu.zip
 ```
 
 Verify:
@@ -53,15 +55,22 @@ Or manually:
 cargo install --git https://github.com/Lunarr199/auto-clicker
 ```
 
-## ⚙️ Usage
-
-```bash
-auto-clicker <ARGUMENTS>
-```
-
 ### 🔑 Hotkeys (default):
 * `Alt + T` → Toggle clicker
 * `Alt + Q` → Quit
+
+## ⚙️ Usage
+
+```bash
+# Run the auto clicker program with the current config
+auto-clicker run
+
+# Change and save config
+auto-clicker set <ARGUMENT1> <ARGUMENT2> <...>
+
+# Display current config
+auto-click show-config
+```
 
 ### 🔧 Arguments:
 
@@ -70,19 +79,19 @@ auto-clicker <ARGUMENTS>
 | `--interval`       | Time between clicks (ms)            | `--interval 50`         |
 | `--button`         | Mouse button to click               | `--button right`        |
 | `--toggle`         | Custom toggle keybind (optional)    | `--toggle "ctrl alt t"` |
+| `--quit`         | Custom quit keybind (optional)    | `--toggle "ctrl alt q"` |
 | `--repeat`| Number of clicks per interval       | `--repeat 2`   |
 
-For more information, please enter:
+For more information about arguments, please use the command:
 
 ```bash
-auto-clicker --help
+auto-clicker set --help
 ```
 
-### 📦 Example:
-
-```bash
-auto-clicker --interval 80 --button left --repeat 2
-```
+#### ⚠️ Config will be stored in: 
+* Linux: `~/.config/autoclicker`
+* Windows: `C:\Users\<Username>\AppData\Roaming\YourName\autoclicker`
+* macOS: `/Users/<Username>/Library/ApplicationSupport/com.YourName.autoclicker`
 
 ## 🧱 Building from Source
 
@@ -96,5 +105,4 @@ Binaries will be in `target/release/`.
 
 ### 📋 Planned Features
 * Auto updater
-* Save config file
 * Hold mouse support
