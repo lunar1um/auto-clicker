@@ -5,5 +5,8 @@ edition = "2024"
 
 [dependencies]
 clap = {version = "4.5.40", features = ["derive"]}
+directories = "6.0.0"
 global-hotkey = "0.7.0"
 mouse-rs = "0.4.2"
+serde = {version = "1.0.219", features = ["derive"]}
+toml = "0.8.23"
