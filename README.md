@@ -39,8 +39,16 @@ auto-clicker --help
 
 ### 🪟 Windows (using `Powershell`)
 
+⚠️ Make sure you are running Powershell with Admin permission:
+
 ```powershell
-irm https://raw.githubusercontent.com/Lunarr199/auto-clicker/master/install/install.ps1 | iex
+powershell start-process powershell -verb runas
+```
+
+Install:
+
+```powershell
+Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Lunarr199/auto-clicker/master/install/install.ps1").Content
 ```
 
 Or manually:
