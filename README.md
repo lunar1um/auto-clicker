@@ -77,7 +77,7 @@ auto-clicker run
 auto-clicker set <ARGUMENT1> <ARGUMENT2> <...>
 
 # Display current config
-auto-click show-config
+auto-clicker show-config
 ```
 
 ### 🔧 Arguments:
