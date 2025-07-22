@@ -18,13 +18,13 @@ A simple, fast, and customizable auto-clicker built in Rust. Cross-platform supp
 ### ✅ Linux / MacOS (using `install.sh`)
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/Lunarr199/auto-clicker/master/install/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/lunar1um/auto-clicker/master/install/install.sh | bash
 ```
 
 Or manually:
 
 ```bash
-wget -q https://github.com/Lunarr199/auto-clicker/releases/latest/download/auto-clicker-x86_64-unknown-linux-gnu.zip
+wget -q https://github.com/lunar1um/auto-clicker/releases/latest/download/auto-clicker-x86_64-unknown-linux-gnu.zip
 unzip -q auto-clicker-x86_64-unknown-linux-gnu.zip
 mv auto-clicker-x86_64-unknown-linux-gnu auto-clicker
 chmod +x auto-clicker
@@ -48,7 +48,7 @@ powershell start-process powershell -verb runas
 Install:
 
 ```powershell
-Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Lunarr199/auto-clicker/master/install/install.ps1").Content
+Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/lunar1um/auto-clicker/master/install/install.ps1").Content
 ```
 
 Or manually:
@@ -104,7 +104,7 @@ auto-clicker set --help
 ## 🧱 Building from Source
 
 ```bash
-git clone https://github.com/Lunarr199/auto-clicker
+git clone https://github.com/lunar1um/auto-clicker
 cd auto-clicker
 cargo build --release
 ```
